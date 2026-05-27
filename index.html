@@ -10,31 +10,35 @@
             padding: 0 !important;
             width: 100%;
             height: 100%;
-            overflow: hidden !important; /* منع أي التواء أو تمرير خارجي */
-            background-color: #071c22 !important; /* لون متجرك الداكن */
+            overflow: hidden !important;
+            background-color: #071c22 !important; /* تلوين الخلفية الأساسية بلون متجرك */
         }
         
-        /* الحاوية الأساسية تعمل كمقص حاد لشاشة العرض */
         .store-container {
             position: relative;
             width: 100%;
             height: 100%;
-            overflow: hidden !important; /* هذا السطر يقص أي شيء يخرج عن حدود الشاشة */
+            overflow: hidden !important; /* الـمقص الذكي الذي سيقطع الحواف البيضاء */
+            background-color: #071c22 !important;
         }
 
-        /* تكبير حجم إطار ستريمليت ميكانيكياً لدفعه لأسفل خارج الرؤية */
         iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100% !important;
             
-            /* نزيد الارتفاع بـ 45 بكسل لتختفي أزرار ستريمليت في المنطقة المحجوبة */
-            height: calc(100% + 45px) !important; 
+            /* سحب الإطار للأعلى ولليسار بمقدار 5 بكسل لإخفاء الحافة العلوية والجانبية */
+            top: -5px !important; 
+            left: -5px !important;
             
-            border: none !important;
+            /* نزيد العرض بمقدار 10 بكسل لتعويض الخروج من الجانبين (يمين ويسار) */
+            width: calc(100% + 10px) !important; 
+            
+            /* نزيد الارتفاع بمقدار 55 بكسل (5 بكسل للتعويض العلوي + 50 بكسل لإخفاء عبارات ستريمليت في الأسفل) */
+            height: calc(100% + 55px) !important; 
+            
+            /* تصفير صارم وإلغاء أي ظلال أو حدود قد يصنعها المتصفح تلقائياً */
+            border: 0 !important;
             outline: none !important;
-            display: block !important;
+            box-shadow: none !important;
         }
     </style>
 </head>
