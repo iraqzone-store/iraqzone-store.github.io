@@ -5,31 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>عراقزون | IraqZone</title>
     <style>
-        /* تصفير حاسم لكل حواف المتصفح الخارجي */
         html, body {
             margin: 0 !important;
             padding: 0 !important;
             width: 100%;
             height: 100%;
-            overflow: hidden !important; /* يمنع ظهور شريط التمرير الخارجي تماماً */
-            background-color: #071c22 !important; /* نفس لون خلفية متجرك بالضبط */
+            overflow: hidden !important; /* منع أي التواء أو تمرير خارجي */
+            background-color: #071c22 !important; /* لون متجرك الداكن */
         }
         
+        /* الحاوية الأساسية تعمل كمقص حاد لشاشة العرض */
         .store-container {
+            position: relative;
             width: 100%;
             height: 100%;
-            border: none;
-            margin: 0;
-            padding: 0;
+            overflow: hidden !important; /* هذا السطر يقص أي شيء يخرج عن حدود الشاشة */
         }
 
+        /* تكبير حجم إطار ستريمليت ميكانيكياً لدفعه لأسفل خارج الرؤية */
         iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100% !important;
-            height: 100% !important;
+            
+            /* نزيد الارتفاع بـ 45 بكسل لتختفي أزرار ستريمليت في المنطقة المحجوبة */
+            height: calc(100% + 45px) !important; 
+            
             border: none !important;
             outline: none !important;
             display: block !important;
-            overflow: hidden !important;
         }
     </style>
 </head>
